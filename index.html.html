@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kuis Jazz: 20 Soal, Kupon Tiket Diskon</title>
+<style>
+:root{--bg:#f3efe6;--card:#fffdf8;--ink:#1c2430;--mute:#5d6673;--line:#d9d2c2;--brass:#b07a1c;--navy:#1f3a5f;--ok:#2f7d4f;--bad:#b23a3a;--okbg:#e4f2e8;--badbg:#f6e3e1;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101a2a;--card:#182538;--ink:#eee8da;--mute:#a4adba;--line:#2c3c55;--brass:#e0b04f;--navy:#8fb3e3;--ok:#7bd3a0;--bad:#f09a94;--okbg:#17372a;--badbg:#3d2224}}
+:root[data-theme="dark"]{--bg:#101a2a;--card:#182538;--ink:#eee8da;--mute:#a4adba;--line:#2c3c55;--brass:#e0b04f;--navy:#8fb3e3;--ok:#7bd3a0;--bad:#f09a94;--okbg:#17372a;--badbg:#3d2224}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 Georgia,"Times New Roman",serif}
+main{max-width:640px;margin:0 auto;padding:28px 18px 48px}
+h1{font:700 2.1rem/1.15 Georgia,serif;margin:0 0 8px;letter-spacing:-.01em}
+h2{font:600 1.25rem/1.35 Georgia,serif;margin:0 0 14px}
+p{margin:0 0 12px}
+.mute{color:var(--mute);font-size:.95rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px 20px}
+button{font:600 1rem/1.2 system-ui,-apple-system,"Segoe UI",sans-serif;cursor:pointer}
+.primary{background:var(--navy);color:var(--bg);border:0;border-radius:8px;padding:14px 22px}
+:root:not([data-theme="light"]) .primary{color:#101a2a}
+.primary:focus-visible,.opt:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
+.rules{display:grid;gap:8px;margin:18px 0 22px;padding:0;list-style:none}
+.rules li{padding-left:14px;border-left:3px solid var(--brass)}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin:6px 0 18px}
+.bar i{display:block;height:100%;background:var(--brass);width:0;transition:width .3s}
+.top{display:flex;justify-content:space-between;font:.9rem system-ui,sans-serif;color:var(--mute)}
+.tag{display:inline-block;font:600 .85rem system-ui,sans-serif;color:var(--brass);margin-bottom:6px}
+.clue{font-size:4.2rem;line-height:1.1;text-align:center;padding:18px 0 8px;letter-spacing:.1em}
+.hint{text-align:center;color:var(--mute);font-style:italic;margin-bottom:16px}
+.song{display:flex;gap:12px;align-items:center;background:var(--bg);border:1px dashed var(--brass);border-radius:8px;padding:14px;margin-bottom:16px}
+.song b{font-size:1.8rem}
+.opts{display:grid;gap:10px}
+.opt{width:100%;text-align:left;background:var(--card);color:var(--ink);border:1.5px solid var(--line);border-radius:8px;padding:13px 14px;font-weight:500}
+.opt:hover:not(:disabled){border-color:var(--navy)}
+.opt.ok{background:var(--okbg);border-color:var(--ok);color:var(--ok)}
+.opt.bad{background:var(--badbg);border-color:var(--bad);color:var(--bad)}
+.fb{margin:14px 0 0;min-height:1.6em;font:600 .95rem system-ui,sans-serif}
+.next{margin-top:14px;display:none}
+.score{font:700 3.4rem/1 Georgia,serif;color:var(--brass)}
+.coupon{margin:18px 0;padding:18px;text-align:center;border:2px dashed var(--brass);border-radius:10px;background:var(--bg)}
+.coupon code{display:block;font:700 1.9rem/1.3 ui-monospace,Menlo,Consolas,monospace;letter-spacing:.08em;color:var(--navy);margin:6px 0}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line);border-radius:8px;padding:13px 18px}
+.song button{white-space:nowrap}.song input{font:.85rem system-ui,sans-serif;max-width:100%}.song .st{display:block;font:.9rem system-ui,sans-serif;color:var(--mute);margin-top:4px}.load{margin:0 0 20px;font:.95rem system-ui,sans-serif}.load summary{cursor:pointer;color:var(--navy);font-weight:600}.load label{display:block;margin:10px 0 2px;color:var(--mute)}.load input{max-width:100%}.hide{display:none}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+</head>
+<body>
+<main>
+<section id="start" class="card">
+  <h1>Kuis Jazz</h1>
+  <p>Seberapa dalam kamu mengenal musik jazz? Jawab 20 pertanyaan, mulai dari sejarah, tebak gambar, sampai tebak lagu.</p>
+  <ul class="rules">
+    <li>10 soal seputar musik jazz</li>
+    <li>5 soal tebak gambar</li>
+    <li>5 soal tebak cuplikan lagu</li>
+    <li>Jawab benar minimal 15 dari 20 soal untuk mendapat nomor kupon tiket diskon</li>
+  </ul>
+  <details class="load"><summary>Panitia: muat file cuplikan lagu</summary><p class="mute">Pilih 5 file audio (mp3, m4a, atau wav) dari perangkat ini untuk soal 16 sampai 20. File hanya diputar di halaman ini dan tidak diunggah ke mana pun. Cuplikan berhenti otomatis setelah 15 detik.</p><div id="loader"></div></details>
+  <button class="primary" id="go">Mulai kuis</button>
+</section>
+
+<section id="play" class="card hide" aria-live="polite">
+  <div class="top"><span id="sec"></span><span id="cnt"></span></div>
+  <div class="bar"><i id="prog"></i></div>
+  <div id="media"></div>
+  <h2 id="q"></h2>
+  <div class="opts" id="opts"></div>
+  <p class="fb" id="fb"></p>
+  <button class="primary next" id="next">Lanjut</button>
+</section>
+
+<section id="end" class="card hide">
+  <p class="mute">Skor akhir</p>
+  <div class="score" id="sc"></div>
+  <p id="msg" style="margin-top:12px"></p>
+  <div id="cp" class="coupon hide">
+    <span class="mute">Nomor kupon tiket diskon</span>
+    <code id="code"></code>
+    <span class="mute">Tunjukkan layar ini ke panitia saat penukaran.</span>
+  </div>
+  <div class="row">
+    <button class="primary" id="again">Main lagi</button>
+    <button class="ghost" id="copy" hidden>Salin nomor kupon</button>
+  </div>
+</section>
+</main>
+
+<script>
+var Q=[
+// Bagian 1: kuis
+["Kuis","Di kota mana musik jazz lahir di Amerika Serikat?",["New Orleans","Chicago","New York","Detroit"]],
+["Kuis","Siapa musisi jazz berjuluk “Satchmo”?",["Louis Armstrong","Duke Ellington","Count Basie","Chet Baker"]],
+["Kuis","Album Kind of Blue (1959) adalah karya siapa?",["Miles Davis","John Coltrane","Charlie Parker","Herbie Hancock"]],
+["Kuis","Apa sebutan bermain musik secara spontan tanpa partitur dalam jazz?",["Improvisasi","Aransemen","Transkripsi","Modulasi"]],
+["Kuis","Alat musik utama John Coltrane adalah…",["Saksofon","Trompet","Piano","Kontrabas"]],
+["Kuis","Aliran jazz yang memadukan irama samba dari Brasil adalah…",["Bossa Nova","Bebop","Dixieland","Fusion"]],
+["Kuis","Siapa penyanyi jazz yang dijuluki “First Lady of Song”?",["Ella Fitzgerald","Billie Holiday","Sarah Vaughan","Nina Simone"]],
+["Kuis","Aliran jazz tahun 1940-an yang bertempo cepat dengan harmoni rumit disebut…",["Bebop","Swing","Smooth Jazz","Ragtime"]],
+["Kuis","Apa sebutan untuk sesi musisi bermain bersama secara spontan di klub atau panggung?",["Jam session","Soundcheck","Rehearsal","Showcase"]],
+["Kuis","Java Jazz Festival diadakan di kota apa?",["Jakarta","Bandung","Yogyakarta","Bali"]],
+// Bagian 2: tebak gambar
+["Tebak gambar","Alat musik apa ini?",["Kontrabas","Cello","Gitar bass","Harpa"],"🎻⬇️","Besar, berdiri, dipetik"],
+["Tebak gambar","Siapa musisi trompet yang coraknya menekuk ke atas dan pipinya menggembung?",["Dizzy Gillespie","Chet Baker","Wynton Marsalis","Freddie Hubbard"],"🎺↗️😮","Corong trompet miring ke atas"],
+["Tebak gambar","Siapa pianis jazz yang identik dengan topi dan kacamata gelap?",["Thelonious Monk","Bill Evans","Oscar Peterson","Ahmad Jamal"],"🎹🎩🕶️","Pianis dengan gaya nyeleneh"],
+["Tebak gambar","Alat musik apa ini?",["Vibrafon","Xilofon","Marimba","Glockenspiel"],"🔨🎶🔩","Bilah logam dengan tabung resonator"],
+["Tebak gambar","Siapa pianis-komposer berjas rapi, pemimpin big band legendaris?",["Duke Ellington","Count Basie","Glenn Miller","Benny Goodman"],"🎩🎹🎼","Big band, jas rapi, komposer"],
+// Bagian 3: tebak lagu
+["Tebak lagu","Cuplikan: intro piano dan drum dengan birama 5/4 yang khas. Apa judulnya?",["Take Five","So What","Autumn Leaves","Round Midnight"],"🎧","Dave Brubeck Quartet"],
+["Tebak lagu","Cuplikan: bass line pembuka lalu dijawab piano. Apa judulnya?",["So What","Take Five","Blue in Green","All Blues"],"🎧","Miles Davis"],
+["Tebak lagu","Cuplikan: lagu standar yang sering dibawakan dengan big band. Apa judulnya?",["Fly Me to the Moon","Summertime","Misty","Satin Doll"],"🎧","Dinyanyikan Frank Sinatra"],
+["Tebak lagu","Cuplikan: irama bossa nova lembut dengan vokal dan saksofon. Apa judulnya?",["The Girl from Ipanema","Desafinado","Corcovado","Wave"],"🎧","Stan Getz dan João Gilberto"],
+["Tebak lagu","Cuplikan: vokal serak yang hangat dengan orkestra. Apa judulnya?",["What a Wonderful World","Georgia on My Mind","Moon River","L-O-V-E"],"🎧","Louis Armstrong"]
+];
+var PASS=15,i=0,score=0,locked=false,coupon="";
+var AU={},aud=new Audio(),tm=null;
+function setAudio(n,f){if(!f)return;if(AU[n])try{URL.revokeObjectURL(AU[n])}catch(e){}AU[n]=URL.createObjectURL(f)}
+function playClip(n,st){
+  if(!AU[n]){st.textContent="Belum ada file audio. Pilih file di bawah.";return}
+  clearTimeout(tm);aud.pause();aud.src=AU[n];aud.currentTime=0;
+  var p=aud.play();if(p&&p.catch)p.catch(function(){st.textContent="Audio tidak bisa diputar. Coba file lain."});
+  st.textContent="Memutar 15 detik…";
+  tm=setTimeout(function(){aud.pause();st.textContent="Selesai. Tekan putar untuk mengulang."},15000);
+}
+function $(id){return document.getElementById(id)}
+function shuffle(a){a=a.slice();for(var k=a.length-1;k>0;k--){var j=Math.floor(Math.random()*(k+1));var t=a[k];a[k]=a[j];a[j]=t}return a}
+function show(id){["start","play","end"].forEach(function(s){$(s).classList.toggle("hide",s!==id)})}
+function render(){
+  var d=Q[i];locked=false;clearTimeout(tm);aud.pause();
+  $("sec").textContent=d[0];$("cnt").textContent="Soal "+(i+1)+" dari "+Q.length;
+  $("prog").style.width=(i/Q.length*100)+"%";
+  var m=$("media");m.innerHTML="";
+  if(d[0]==="Tebak gambar"){m.innerHTML='<div class="clue" aria-hidden="true">'+d[3]+'</div><div class="hint">Petunjuk: '+d[4]+'</div>'}
+  if(d[0]==="Tebak lagu"){
+    var n=i;
+    m.innerHTML='<div class="song"><button class="primary" type="button" id="pl">▶ Putar cuplikan</button><div><span>Petunjuk: '+d[4]+'</span><span class="st" id="pst"></span><input type="file" accept="audio/*" id="inl" aria-label="Pilih file audio untuk soal ini"></div></div>';
+    var st=$("pst"),inl=$("inl");
+    if(AU[n])inl.style.display="none";else st.textContent="Pilih file audio untuk soal ini.";
+    inl.onchange=function(){setAudio(n,inl.files[0]);inl.style.display="none";playClip(n,st)};
+    $("pl").onclick=function(){playClip(n,st)};
+  }
+  $("q").textContent=d[1];
+  var box=$("opts");box.innerHTML="";
+  shuffle(d[2].map(function(t,n){return{t:t,c:n===0}})).forEach(function(o){
+    var b=document.createElement("button");b.className="opt";b.textContent=o.t;b.dataset.c=o.c?"1":"0";
+    b.onclick=function(){pick(b)};box.appendChild(b)});
+  $("fb").textContent="";$("next").style.display="none";
+  $("next").textContent=i===Q.length-1?"Lihat hasil":"Lanjut";
+}
+function pick(b){
+  if(locked)return;locked=true;
+  var ok=b.dataset.c==="1";if(ok)score++;
+  Array.prototype.forEach.call($("opts").children,function(x){
+    x.disabled=true;
+    if(x.dataset.c==="1")x.classList.add("ok");
+  });
+  if(!ok)b.classList.add("bad");
+  var f=$("fb");f.textContent=ok?"Benar!":"Belum tepat. Jawaban benar ditandai hijau.";
+  f.style.color=ok?"var(--ok)":"var(--bad)";
+  $("next").style.display="inline-block";$("next").focus();
+}
+function makeCode(){
+  var c="ABCDEFGHJKLMNPQRSTUVWXYZ23456789",s="";
+  for(var k=0;k<6;k++)s+=c.charAt(Math.floor(Math.random()*c.length));
+  return "JZZ-"+s;
+}
+function finish(){
+  $("prog").style.width="100%";
+  $("sc").textContent=score+" / "+Q.length;
+  var win=score>=PASS;
+  $("cp").classList.toggle("hide",!win);$("copy").hidden=!win;
+  if(win){
+    try{coupon=localStorage.getItem("jazzCoupon")||""}catch(e){coupon=""}
+    if(!coupon){coupon=makeCode();try{localStorage.setItem("jazzCoupon",coupon)}catch(e){}}
+    $("code").textContent=coupon;
+    $("msg").textContent="Selamat! Kamu menjawab "+score+" soal dengan benar dan berhak atas tiket diskon.";
+  }else{
+    $("msg").textContent="Kamu butuh minimal "+PASS+" jawaban benar untuk mendapat kupon. Coba lagi, kamu pasti bisa lebih tinggi.";
+  }
+  show("end");
+}
+(function(){
+  var L=$("loader");
+  for(var n=15;n<20;n++)(function(n){
+    var lb=document.createElement("label");lb.textContent="Cuplikan soal "+(n+1);
+    var inp=document.createElement("input");inp.type="file";inp.accept="audio/*";
+    inp.onchange=function(){setAudio(n,inp.files[0])};
+    lb.appendChild(document.createElement("br"));lb.appendChild(inp);L.appendChild(lb);
+  })(n);
+})();
+$("go").onclick=function(){i=0;score=0;show("play");render()};
+$("next").onclick=function(){i++;if(i>=Q.length)finish();else render()};
+$("again").onclick=function(){i=0;score=0;show("play");render()};
+$("copy").onclick=function(){
+  var b=$("copy");
+  try{navigator.clipboard.writeText(coupon).then(function(){b.textContent="Tersalin"},function(){b.textContent="Salin manual dari layar"})}
+  catch(e){b.textContent="Salin manual dari layar"}
+};
+</script>
+</body>
+</html>
